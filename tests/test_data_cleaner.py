@@ -178,6 +178,11 @@ class TestDataCleaner(unittest.TestCase):
         - Verificar que se lanza un KeyError (usar self.assertRaises)
         """
 
+        cleaner=DataCleaner()
+        df=make_sample_df()
+        with self.assertRaises(KeyError):
+            cleaner.remove_outliers_iqr(df,"salary")
+
         
 
     def test_remove_outliers_iqr_raises_typeerror_for_non_numeric_column(self):
