@@ -146,7 +146,7 @@ class TestStatisticsUtils(unittest.TestCase):
         arr=[2,4,6]
         results=util.min_max_scale(arr)
         expected=np.array([0.0,0.5,1.0])
-        
+
         self.assertAlmostEqual(results.min(),0)
         self.assertAlmostEqual(results.max(),1)
         
@@ -161,6 +161,11 @@ class TestStatisticsUtils(unittest.TestCase):
         - Crear una lista con todos los valores iguales (ej: [3, 3, 3])
         - Llamar a min_max_scale con esa secuencia y verificar que se lanza un ValueError indicando que todos los valores son iguales (usar self.assertRaises)
         """
+        utils=StatisticsUtils()
+        arr=[3,3,3]
+
+        with self.assertRaises(ValueError):
+            utils.min_max_scale(arr)
 
 
 if __name__ == "__main__":
