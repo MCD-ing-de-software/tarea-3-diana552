@@ -93,6 +93,12 @@ class TestStatisticsUtils(unittest.TestCase):
         - Llamar a moving_average con esa secuencia y verificar que se lanza un ValueError indicando que solo se aceptan secuencias 1D (usar self.assertRaises)
         """
 
+        utils=StatisticsUtils()
+        arr=[[1,2],[3,4]]
+
+        with self.assertRaises(ValueError):
+            utils.moving_average(arr,window=2)
+
     def test_zscore_has_mean_zero_and_unit_std(self):
         """Test que verifica que el método zscore calcula correctamente los z-scores
         de una secuencia numérica, comprobando que el resultado tiene media cero y
